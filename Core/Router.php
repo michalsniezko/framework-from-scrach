@@ -2,6 +2,8 @@
 
 class Router
 {
+
+
     /**
      * @var array
      */
@@ -85,5 +87,60 @@ class Router
         return $this->params;
     }
 
+    /**
+     * @param string $url
+     * @return void
+     */
+    public function dispatch(string $url):void
+    {
+        if($this->match($url))
+        {
+            $controller = $this->params['controller'];
+            $controller = $this->convertToStudlyCaps($controller);
+
+            if(class_exists($controller))
+            {
+                $controllerObject = new $controller;
+
+                $action = $this->params['action'];
+                $action = $this->convertToCamelCase($action);
+
+                if(is_callable(array($controllerObject, $action)))
+                {
+                    $controllerObject->$action();
+                }
+                else
+                {
+                    echo "Method $action (in controller $controller) not found";
+                }
+            }
+            else
+            {
+                echo "Controller class $controller not found";
+            }
+        }
+        else
+        {
+            echo "No route matched";
+        }
+    }
+
+    /**
+     * @param string $string
+     * @return string
+     */
+    protected function convertToStudlyCaps(string $string): string
+    {
+        return str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
+    }
+
+    /**
+     * @param string $string
+     * @return string
+     */
+    protected function convertToCamelCase(string $string): string
+    {
+        return lcfirst($this->convertToStudlyCaps($string));
+    }
 
 }
