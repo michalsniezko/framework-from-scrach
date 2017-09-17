@@ -7,9 +7,26 @@ use Core\Controller;
 class Home extends Controller
 {
     /**
+     * @return mixed
+     */
+    protected function before()
+    {
+        echo "BEFORE METHOD CALLED";
+        return false;
+    }
+
+    /**
      * @return void
      */
-    public function index(): void
+    protected function after(): void
+    {
+        echo 'AFTER METHOD CALLED';
+    }
+
+    /**
+     * @return void
+     */
+    public function indexAction(): void
     {
         echo "Index action in the Home controller";
     }

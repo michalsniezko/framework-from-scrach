@@ -111,14 +111,23 @@ class Router
                 $action = $this->params['action'];
                 $action = $this->convertToCamelCase($action);
 
-                if(is_callable(array($controllerObject, $action)))
+                //check if the action doesnt end with 'Action' - this would cause a security breach, see Controller::__call
+                if(preg_match('/action$/i', $action) === 0 )
                 {
                     $controllerObject->$action();
                 }
                 else
                 {
-                    echo "Method $action (in controller $controller) not found";
+                    echo "Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method";
                 }
+//                if(is_callable(array($controllerObject, $action)))
+//                {
+//                    $controllerObject->$action();
+//                }
+//                else
+//                {
+//                    echo "Method $action (in controller $controller) not found";
+//                }
             }
             else
             {
@@ -168,4 +177,12 @@ class Router
         return $url;
     }
 
+    /**
+     * @return void
+     */
+    public function printRoutingTable(): void
+    {
+        echo "ROUTING TABLE:";
+        echo '<pre>' . htmlspecialchars(print_r($this->routes, true)) . '</pre>';
+    }
 }

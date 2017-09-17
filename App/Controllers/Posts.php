@@ -10,7 +10,7 @@ class Posts extends Controller
     /**
      * @return void
      */
-    public function index(): void
+    public function indexAction(): void
     {
         echo "iam the index action in the posts controller";
 //        echo "<p>Query string parameters: <pre>"
@@ -22,7 +22,7 @@ class Posts extends Controller
     /**
      * @return void
      */
-    public function addNew(): void
+    public function addNewAction(): void
     {
         echo "iam the addnew action in the posts controller";
     }
@@ -30,7 +30,7 @@ class Posts extends Controller
     /**
      * @return void
      */
-    public function edit(): void
+    public function editAction(): void
     {
         echo "Edit action in Posts controller;";
         echo "<p>Route parameters: <pre>"
