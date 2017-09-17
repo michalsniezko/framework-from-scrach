@@ -7,10 +7,12 @@ class View
 {
     /**
      * @param string $view
-     * @return void
+     * @param array $args
      */
-    public static function render(string $view):void
+    public static function render(string $view, array $args = []):void
     {
+        extract($args, EXTR_SKIP);
+
         $file = "../App/Views/$view"; //relative to Core directory
 
         if(is_readable($file))
