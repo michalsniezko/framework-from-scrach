@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Core\Controller;
+use Core\View;
 
 class Home extends Controller
 {
@@ -11,8 +12,8 @@ class Home extends Controller
      */
     protected function before()
     {
-        echo "BEFORE METHOD CALLED";
-        return false;
+//        echo "BEFORE METHOD CALLED";
+//        return false;
     }
 
     /**
@@ -20,7 +21,7 @@ class Home extends Controller
      */
     protected function after(): void
     {
-        echo 'AFTER METHOD CALLED';
+//        echo 'AFTER METHOD CALLED';
     }
 
     /**
@@ -28,6 +29,7 @@ class Home extends Controller
      */
     public function indexAction(): void
     {
-        echo "Index action in the Home controller";
+//        echo "Index action in the Home controller";
+        View::render('Home/index.php');
     }
 }
