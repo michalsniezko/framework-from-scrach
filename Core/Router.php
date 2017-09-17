@@ -102,7 +102,8 @@ class Router
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);
 
-            $controller = "App\\Controllers\\$controller";
+//            $controller = "App\\Controllers\\$controller";
+            $controller = $this->getNamespace() . $controller;
 
             if(class_exists($controller))
             {
@@ -185,4 +186,20 @@ class Router
         echo "ROUTING TABLE:";
         echo '<pre>' . htmlspecialchars(print_r($this->routes, true)) . '</pre>';
     }
+
+    /**
+     * @return string
+     */
+    protected function getNamespace(): string
+    {
+        $namespace = 'App\Controllers\\';
+
+        if(array_key_exists('namespace', $this->params))
+        {
+            $namespace .= $this->params['namespace'] . '\\';
+        }
+
+        return $namespace;
+    }
 }
+
