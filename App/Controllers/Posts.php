@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use Core\Controller;
+use Core\View;
 
 class Posts extends Controller
 {
@@ -12,11 +13,11 @@ class Posts extends Controller
      */
     public function indexAction(): void
     {
-        echo "iam the index action in the posts controller";
 //        echo "<p>Query string parameters: <pre>"
 //            . htmlspecialchars(print_r($_GET, true))
 //            . "</pre></p>";
 
+        View::renderTemplate('Posts/index.html.twig');
     }
 
     /**
