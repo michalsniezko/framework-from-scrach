@@ -18,12 +18,12 @@ abstract class Controller
     }
 
     /**
-     * Action filter method
+     * Action filter
      *
      * @param $name
      * @param $arguments
      *
-     * @return void
+     * @throws \Exception
      */
     public function __call($name, $arguments)
     {
@@ -39,7 +39,8 @@ abstract class Controller
         }
         else
         {
-            echo "Method $method not found in controller " . get_class($this);
+//            echo "Method $method not found in controller " . get_class($this);
+            throw new \Exception("Method $method not found in controller " . get_class($this));
         }
     }
 
