@@ -56,7 +56,7 @@ class Error
                 . " on line " . $exception->getLine();
 
             error_log($message);
-            echo $responseCode == 404? "<h1>Page not found</h1>" : "<h1>An error occured</h1>";
+            View::renderTemplate("$responseCode.html.twig");
 
         }
     }
