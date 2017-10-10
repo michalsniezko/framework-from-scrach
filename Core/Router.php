@@ -90,7 +90,7 @@ class Router
 
     /**
      * @param string $url
-     * @return void
+     * @throws \Exception
      */
     public function dispatch(string $url):void
     {
@@ -102,7 +102,6 @@ class Router
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);
 
-//            $controller = "App\\Controllers\\$controller";
             $controller = $this->getNamespace() . $controller;
 
             if(class_exists($controller))
@@ -112,36 +111,24 @@ class Router
                 $action = $this->params['action'];
                 $action = $this->convertToCamelCase($action);
 
-                //check if the action doesnt end with 'Action' - this would cause a security breach, see Controller::__call
                 if(preg_match('/action$/i', $action) === 0 )
                 {
                     $controllerObject->$action();
                 }
                 else
                 {
-//                    echo "Method $action in controller $controller cannot be called directly - remove the Action suffix to call this method";
                     throw new \Exception("Method $action in controller $controller not found");
                 }
-//                if(is_callable(array($controllerObject, $action)))
-//                {
-//                    $controllerObject->$action();
-//                }
-//                else
-//                {
-//                    echo "Method $action (in controller $controller) not found";
-//                }
             }
             else
             {
-//                echo "Controller class $controller not found";
 
                 throw new \Exception("Controller class $controller not found");
             }
         }
         else
         {
-//            echo "No route matched";
-            throw new \Exception("No route matched");
+            throw new \Exception("No route matched", 404);
         }
     }
 

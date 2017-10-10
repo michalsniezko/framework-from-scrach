@@ -19,6 +19,16 @@ class Error
 
     public static function exceptionHandler(Exception $exception) : void
     {
+
+        // Code is 404 (not found) or 500 (general error) for now
+        $responseCode = $exception->getCode();
+        if($responseCode != 404)
+        {
+            $responseCode = 500;
+        }
+
+        http_response_code($responseCode);
+
         if(Config::SHOW_ERRORS)
         {
 
@@ -46,7 +56,7 @@ class Error
                 . " on line " . $exception->getLine();
 
             error_log($message);
-            echo "<h1>An error occured</h1>";
+            echo $responseCode == 404? "<h1>Page not found</h1>" : "<h1>An error occured</h1>";
 
         }
     }
