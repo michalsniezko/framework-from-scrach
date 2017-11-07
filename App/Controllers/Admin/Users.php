@@ -2,7 +2,6 @@
 
 namespace App\Controllers\Admin;
 
-
 use Core\Controller;
 
 class Users extends Controller
@@ -12,7 +11,6 @@ class Users extends Controller
      */
     protected function before()
     {
-
     }
 
     /**
@@ -20,7 +18,6 @@ class Users extends Controller
      */
     protected function after(): void
     {
-
     }
 
     /**
@@ -30,6 +27,4 @@ class Users extends Controller
     {
         echo "User admin index";
     }
-
-
 }

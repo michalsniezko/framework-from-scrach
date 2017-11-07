@@ -29,13 +29,12 @@ class Home extends Controller
      */
     public function indexAction(): void
     {
-
-        View::renderTemplate('Home/index.html.twig',
+        View::renderTemplate(
+            'Home/index.html.twig',
             array(
                 'name' => 'Mike',
                 'colours' => ['red', 'green', 'blue']
             )
         );
-
     }
 }

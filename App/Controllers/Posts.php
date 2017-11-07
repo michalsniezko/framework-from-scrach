@@ -15,7 +15,8 @@ class Posts extends Controller
     public function indexAction(): void
     {
         $posts = Post::getAll();
-        View::renderTemplate('Posts/index.html.twig',
+        View::renderTemplate(
+            'Posts/index.html.twig',
             array(
                 'posts' => $posts
             )
@@ -40,6 +41,4 @@ class Posts extends Controller
             . htmlspecialchars(print_r($this->route_params, true))
             . "</pre></p>";
     }
-
-
 }

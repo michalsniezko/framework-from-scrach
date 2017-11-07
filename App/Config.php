@@ -8,5 +8,5 @@ class Config
     const DB_NAME = 'my_framework';
     const DB_USER = 'root';
     const DB_PASSWORD = 'qwe';
-    const SHOW_ERRORS = false;
+    const SHOW_ERRORS = true;
 }
