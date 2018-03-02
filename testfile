@@ -1,0 +1,19 @@
+/Users/michalsniezko/Sites/MyFramework
+/Users/michalsniezko/Sites/MyFramework
+total 72
+drwxr-xr-x  16 michalsniezko  staff   512  2 mar 12:45 .
+drwxr--rwx   7 michalsniezko  staff   224 20 wrz 14:12 ..
+-rw-r--r--@  1 michalsniezko  staff  6148 22 paź 14:42 .DS_Store
+drwxr-xr-x  15 michalsniezko  staff   480  2 mar 12:45 .git
+-rw-r--r--   1 michalsniezko  staff   178  2 mar 12:42 .gitignore
+drwxr-xr-x  14 michalsniezko  staff   448 19 lis 15:29 .idea
+-rw-r--r--   1 michalsniezko  staff   985  7 lis 17:55 .php_cs.cache
+drwxr-xr-x   6 michalsniezko  staff   192 24 paź 15:16 App
+drwxr-xr-x   7 michalsniezko  staff   224 10 paź 18:57 Core
+-rw-r--r--   1 michalsniezko  staff   467  7 lis 17:58 README.md
+-rw-r--r--   1 michalsniezko  staff   170 20 wrz 13:58 composer.json
+-rw-r--r--   1 michalsniezko  staff  4843 17 wrz 21:23 composer.lock
+drwxrwxrwx   5 michalsniezko  staff   160 24 paź 15:15 logs
+drwxr-xr-x   4 michalsniezko  staff   128  9 paź 16:22 public
+-rw-r--r--   1 michalsniezko  staff    78  2 mar 12:46 testfile
+drwxr-xr-x   6 michalsniezko  staff   192 17 wrz 21:23 vendor
