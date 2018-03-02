@@ -23,6 +23,11 @@ class Posts extends Controller
         );
     }
 
+    public function after(): void
+    {
+
+    }
+
     /**
      * @return void
      */
